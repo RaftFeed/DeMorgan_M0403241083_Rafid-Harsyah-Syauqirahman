@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafid — Portfolio</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --container-x: clamp(16px, 5vw, 120px);
+      --text: #e9edf1;
+      --muted: #cdd5df;
+      --accent: #7aa2ff; /* biru steam-ish */
+      --accent-2: #9cc0ff;
+      --surface: rgba(18, 24, 38, 0.6);
+      --surface-strong: rgba(18, 24, 38, 0.85);
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    /* Base */
+    html { scroll-behavior: smooth }
+    * { box-sizing: border-box }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0; color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(3,8,20,.9) 0%, rgba(3,8,20,.5) 40%, rgba(3,8,20,.9) 100%),
+        url('./assets/violet.jpg') center/cover fixed no-repeat;
+    }
+    a { color: var(--text); text-decoration: none }
+    img { max-width: 100%; display: block }
+    .container { width: min(1200px, 100%); margin-inline: auto; padding-inline: var(--container-x) }
+
+    /* Topbar */
+    .topbar-wrap { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(140%) blur(8px) }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px var(--container-x);
+      background: linear-gradient(180deg, rgba(10,14,24,.75), rgba(10,14,24,.55));
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px
+    }
+    .brand img { width: 28px; height: 28px; filter: invert(); opacity: .9 }
+
+    nav { display: flex; align-items: center; gap: 18px; }
+    .nav-link { position: relative; padding: 8px 6px; color: var(--muted); font-weight: 500 }
+    .nav-link:hover, .nav-link:focus-visible { color: var(--text) }
+    .nav-link::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--accent); transition: width .25s ease }
+    .nav-link:hover::after, .nav-link:focus-visible::after { width: 100% }
+    .btn-primary { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(49,84,165,.3), rgba(49,84,165,.15)); box-shadow: var(--shadow); font-weight: 600 }
+    .btn-primary:hover { outline: 1px solid rgba(122,162,255,.35) }
+
+    /* Hero/Profile */
+    #profile { padding: 72px var(--container-x) 40px; }
+    .hero {
+      display: grid; grid-template-columns: 280px 1fr; gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+    .avatar {
+      width: 240px; height: 240px; border-radius: 50%; object-fit: cover;
+      border: 4px solid rgba(0,0,0,.6); box-shadow: var(--shadow);
+    }
+    .card {
+      background: radial-gradient(1200px 600px at -10% -10%, rgba(122,162,255,.15), transparent 35%) , var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: var(--shadow);
+    }
+    .headline { margin: 0 0 8px; font-size: clamp(24px, 2.4vw + 10px, 36px) }
+    .headline a { color: var(--accent-2) }
+    .desc { margin: 6px 0; color: var(--muted); line-height: 1.6; max-width: 60ch; text-align: justify }
+
+    /* Badges/quick facts */
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px }
+    .badge { padding: 6px 10px; border-radius: 999px; background: rgba(122,162,255,.12); border: 1px solid rgba(122,162,255,.22); color: var(--accent-2); font-size: 13px; font-weight: 600 }
+
+    /* Sections */
+    section { padding: 56px 0 }
+    .section-title { font-size: 24px; margin: 0 0 20px; letter-spacing:.2px }
+    .muted { color: var(--muted) }
+
+    /* Projects */
+    .projects-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr) }
+    .project-card {
+      grid-column: span 4; min-height: 160px; padding: 18px; border-radius: var(--radius);
+      background: var(--surface-strong); border: 1px solid var(--border); box-shadow: var(--shadow);
+      display:flex; flex-direction:column; gap:10px; justify-content: flex-start;
+    }
+    .project-img {
+      display: block;
+      margin: 0 auto; 
+      max-width: 90%; 
+      height: auto;
+      border-radius: 8px;
+    }
+    .project-card h3 { margin: 0; font-size: 18px }
+    .project-card p { margin: 0; color: var(--muted) }
+    .project-card a.more { margin-top: auto; align-self: start; color: var(--accent-2) }
+    .project-card img { border-radius: 12px; margin-top: 10px; max-height: 160px; box-shadow: var(--shadow) }
+
+    /* Prestasi */
+    .timeline { border-left: 2px solid rgba(255,255,255,.1); margin-left: 8px; padding-left: 18px; display: grid; gap: 16px }
+    .timeline-item { position: relative }
+    .timeline-item::before { content: ""; position: absolute; left: -10px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent) }
+
+    /* Contact */
+    .contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px }
+    .contact-list a { display: inline-flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
+    .contact-list a:hover { outline: 1px solid rgba(122,162,255,.3) }
+    .contact-list img { width: 28px; height: 28px; filter: invert() }
+
+    /* Footer */
+    footer { padding: 24px var(--container-x) 48px; color: var(--muted); text-align: center; border-top: 1px solid var(--border); background: linear-gradient(180deg, rgba(10,14,24,.55), rgba(10,14,24,.8)) }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; justify-items: center; }
+      .avatar { width: 200px; height: 200px }
+      .projects-grid { grid-template-columns: repeat(6, 1fr) }
+      .project-card { grid-column: span 6 }
+    }
+    @media (max-width: 600px) {
+      nav { gap: 10px; flex-wrap: wrap }
+      .projects-grid { grid-template-columns: repeat(2, 1fr) }
+      .project-card { grid-column: span 2 }
+      .contact-list a { padding: 10px }
+    }
+
+    /* A11y focus */
+    :focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } .nav-link::after { transition: none } }
+  </style>
+</head>
+<body>
+  <!-- Topbar / Navbar -->
+  <div class="topbar-wrap" role="navigation" aria-label="Main">
+    <div class="topbar">
+      <a class="brand" href="https://ieee.org" target="_blank" rel="noopener">
+        <img src="./assets/logo%20ieee.svg" alt="IEEE Logo" aria-hidden="true" />
+        <span>IEEE SB IPB</span>
+      </a>
+      <nav>
+        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#prestasi">Prestasi</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="btn-primary" href="#contact">Hire me</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero / Profile -->
+  <section id="profile" class="container" aria-labelledby="profile-heading">
+    <div class="hero">
+      <img class="avatar" src="./assets/test.jpg" alt="Foto profil Rafid" />
+      <div class="card">
+        <h1 id="profile-heading" class="headline">Hello, I'm <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" rel="noopener">Rafid</a> 👋</h1>
+        <p class="desc">Undergraduate at <strong>IPB University</strong> majoring in <strong>Computer Science</strong>, Aku member <strong>IEEE SB IPB University</strong> coyyy :p.</p>
+        <p class="desc">Siap salah NIM saya <strong>M0403214083</strong></p>
+        <p class="desc"> Proxy aku <strong>DeMorgan</strong>, sire!</p>
+        <div class="badges" aria-label="Highlights">
+          <span class="badge">GameDev &amp; Game Designer</span>
+          <span class="badge">Godot / GDScript</span>
+          <span class="badge">C / R / Python</span>
+          <span class="badge">Vibe Coding</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container" aria-labelledby="projects-heading">
+    <h2 class="section-title" id="projects-heading">Projects</h2>
+    <p class="muted" style="margin-top:-8px">A few things I’ve built recently lmao.</p>
+    <div class="projects-grid" role="list">
+      <article class="project-card" role="listitem">
+        <h3>Driven by The Unknown</h3>
+        <p>Deeply atmospheric, <strong>narrative-driven</strong> game that serves as an allegory for the human journey through life — a journey filled with uncertainty, choices, temptation, and the search for meaning.</p>
+        <img class="project-img" src="./assets/Driven_Logo.png" alt="Screenshot of Driven by The Unknown game"/>
+        <a class="more" href="https://vipipar.itch.io/driven-by-the-unknown" aria-label="Open project details">View more →</a>
+      </article>
+      <article class="project-card" role="listitem">
+        <h3>Catastrophe</h3>
+        <p>Catastrophe is a fast, brutal <strong>2D roguelike platformer</strong> where parry-dash combat meets <strong>blackjack duels</strong> that grant buffs or debuffs, with each boss bringing unique styles and strategy to keep every run fresh.</p>
+        <img class="project-img" src="./assets/Catastrophe_Logo.png" alt="Screenshot of Catastrophe game"/>
+        <a class="more" href="https://www.youtube.com/watch?v=V6elt1Y1G4c" aria-label="Open project details">View more →</a>
+      </article>
+      <article class="project-card" role="listitem">
+        <h3>Web Portofolio</h3>
+        <p>Yaa <strong>website ini lah</strong> pake nanya heheheha. Ini kudu ngetik apa lagi ya biar panjang deskripsinya. Lieur euy kumaha atuh ini kang aduh kakangkung</p>
+        <img class="project-img" src="./assets/web porto.jpg" alt="Screenshot of Catastrophe game"/>
+        <a class="more" href="#" aria-label="Open project details">View more →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Prestasi / Achievements -->
+  <section id="prestasi" class="container" aria-labelledby="achievements-heading">
+    <h2 class="section-title" id="achievements-heading">Prestasi</h2>
+    <div class="timeline" role="list">
+      <div class="timeline-item" role="listitem">
+        <strong>2025 —</strong> IEEE SB IPB Treasurer • Organized Money money money ay ay ay :p
+      </div>
+      <div class="timeline-item" role="listitem">
+        <strong>2024 —</strong> Top 15 Best Work <em>PKM-K Cluster</em> at IPB University
+      </div>
+      <div class="timeline-item" role="listitem">
+        <strong>2023 —</strong> 1st Place <em>Mathematics Competition Parsial Himatika 2023</em> at UIN Syarif Hidayatullah.
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container" aria-labelledby="contact-heading">
+    <h2 class="section-title" id="contact-heading">Contact Me</h2>
+    <ul class="contact-list">
+      <li>
+        <a href="https://www.instagram.com/rafidhrsyh/" target="_blank" rel="noopener" aria-label="Instagram @raftfeed">
+          <img src="./assets/logo%20instagram.svg" alt="Instagram" />
+          <span>@rafidhrsyh</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/rafid-harsyah-syauqirahman-300903323/" target="_blank" rel="noopener" aria-label="LinkedIn profile of Rafid Harsyah Syauqirahman">
+          <img src="./assets/logo%20linkedin.svg" alt="LinkedIn" />
+          <span>Rafid Harsyah Syauqirahman</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://wa.me/6285236467838" target="_blank" rel="noopener" aria-label="WhatsApp Rafid">
+          <img src="./assets/logo%20wangsaf.svg" alt="WhatsApp" />
+          <span>Wangsaf</span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:rafidharsyahh@gmail.com?subject=Hi%20Rafid%20—%20from%20your%20portfolio" aria-label="Send email to Rafid">
+          <img src="./assets/logo%20email.svg" alt="Email" />
+          <span>Email</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1kaTbHWKoDyE-awMlh0D4OP51Ly8mYbQk/view?usp=sharing" aria-label="Download CV">
+          <img src="./assets/logo%20cv.svg" alt="Download" />
+          <span>Download CV (PDF)</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Rafid Harsyah Syauqirahman • RaftFeed
+    </div>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

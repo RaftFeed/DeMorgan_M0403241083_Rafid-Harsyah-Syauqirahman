@@ -1,0 +1,109 @@
+body {
+    font-family: 'Inter';
+    margin: 0;
+    color: white;
+    padding: 32px 240px;
+    background: 
+    linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.5)), 
+    url("./assets/violet.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+}
+
+nav a {
+    margin-left: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+#profile {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-top: 120px;
+    text-decoration: none;
+    color: white;
+}
+
+.profile-info {
+    text-decoration: none;
+    color : white;
+}
+
+.profile-img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgb(0, 0, 0);
+}
+
+.project-img {
+  display: block;
+  margin: 0 auto;   /* biar center */
+  width: 220px;     /* contoh ukuran */
+  height: auto;
+}
+
+#contact h2 {
+    margin-top: 100px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#contact ul li { margin: 6px 0; list-style: none }
+#contact ul li a {
+  display: inline-flex;        
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+
+.instagram-img {
+    width: 30px;
+    height: 30px;
+    filter: invert();
+}
+
+.linkedin-img {
+    width: 35px;
+    height: 35px;
+    filter: invert();
+    
+}
+
+.wangsaf-img {
+    width: 30px;
+    height: 30px;
+    filter: invert();
+}
+
+.desc {
+  margin-bottom: 0px; 
+  margin-top: 0px;
+  text-align: justify;
+  width: 500px;  
+}
+
+.contact {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+

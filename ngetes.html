@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rafid — Portfolio (Steam Style)</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Mini top navigation -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#" aria-label="Home">
+      <span class="logo-badge">RF</span> RaftFeed
+    </a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Profile banner -->
+<header class="banner">
+  <div class="banner-inner">
+    <img class="avatar" src="./assets/test.jpg" alt="Rafid avatar" />
+    <div class="title">
+      <h1>RaftFeed</h1>
+      <div class="subtitle">Jakarta, Indonesia • “Bang gift aku game dong bangggg”</div>
+    </div>
+    <div class="level">
+      <div class="pill">
+        <span class="num">22</span>
+        <span>Level</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- LEFT / MAIN -->
+  <section class="main">
+    <!-- Game Collector -->
+    <div class="panel">
+      <div class="panel-header">Game Collector</div>
+      <div class="panel-body">
+        <div class="stats">
+          <div class="stat">
+            <div class="value">98</div>
+            <div class="label">Games Owned</div>
+            <div class="bar"><span style="width:80%"></span></div>
+          </div>
+          <div class="stat">
+            <div class="value">62</div>
+            <div class="label">DLC Owned</div>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+          <div class="stat">
+            <div class="value">3</div>
+            <div class="label">Reviews</div>
+            <div class="bar"><span style="width:25%"></span></div>
+          </div>
+          <div class="stat">
+            <div class="value">16</div>
+            <div class="label">Wishlisted</div>
+            <div class="bar"><span style="width:40%"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Games -->
+    <div class="panel" id="projects" style="margin-top:16px">
+      <div class="panel-header">Featured Games / Projects</div>
+      <div class="panel-body">
+        <div class="hscroll">
+          <article class="game">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200" alt="DOOM Eternal cover" />
+            <div class="g-title">DOOM Eternal — Ultra-Nightmare Mod</div>
+          </article>
+          <article class="game">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200" alt="Stardew" />
+            <div class="g-title">Stardew Valley — Save Visualizer</div>
+          </article>
+          <article class="game">
+            <img src="https://images.unsplash.com/photo-1520975922284-7b6834f20c9b?q=80&w=1200" alt="Shadow of War" />
+            <div class="g-title">Shadow of War — Build Planner</div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot Showcase -->
+    <div class="panel" style="margin-top:16px">
+      <div class="panel-header">Screenshot Showcase</div>
+      <div class="panel-body">
+        <div class="shots">
+          <figure class="shot"><img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1400" alt="s1"></figure>
+          <figure class="shot"><img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=1400" alt="s2"></figure>
+          <figure class="shot"><img src="https://images.unsplash.com/photo-1516117172878-fd2c41f4a759?q=80&w=1400" alt="s3"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT / SIDEBAR -->
+  <aside class="sidebar">
+    <div class="panel">
+      <div class="panel-header">Currently Online</div>
+      <div class="panel-body">
+        <div class="online">● Online</div>
+        <div style="color:var(--muted); margin-top:6px">
+          Available for co-op, code review, or a quick chat.
+        </div>
+      </div>
+    </div>
+
+    <div class="list" style="margin-top:16px">
+      <div class="side-card">
+        <div style="font-weight:800">Profile Awards <span style="color:var(--muted);font-weight:600">23</span></div>
+        <div class="badges">
+          <div class="badge">🌙</div>
+          <div class="badge">🦅</div>
+          <div class="badge">🐶</div>
+          <div class="badge">🥤</div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div style="font-weight:800">Badges <span style="color:var(--muted);font-weight:600">21</span></div>
+        <div class="badges">
+          <div class="badge">50+</div>
+          <div class="badge">5</div>
+          <div class="badge">☘️</div>
+        </div>
+      </div>
+      <div class="side-card" id="about">
+        <div style="font-weight:800">About</div>
+        <div style="color:var(--muted)">
+          CS undergrad @ IPB University. Building a dark-fantasy roguelike with a blackjack twist.
+        </div>
+      </div>
+      <div class="side-card" id="contact">
+        <div style="font-weight:800">Contact</div>
+        <div class="badges" style="gap:10px">
+          <a class="badge" href="https://www.instagram.com/raftfeed/" target="_blank">@</a>
+          <a class="badge" href="https://www.linkedin.com/in/rafid-harsyah-syauqirahman-300903323/" target="_blank">in</a>
+          <a class="badge" href="http://wa.me/6285236467838" target="_blank">WA</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  © 2025 Rafid — Portfolio in Steam Style.
+</footer>
+
+</body>
+</html>
